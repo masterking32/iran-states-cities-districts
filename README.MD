@@ -1,4 +1,4 @@
-# Iranian Location Data Scraper
+# Iran Location Data Scraper
 
 This project is a simple and efficient tool for fetching updated states, cities, and districts data from the Iranian Post website. The data is saved as a JSON file, which can be easily integrated into your projects.
 
