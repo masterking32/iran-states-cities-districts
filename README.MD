@@ -1,10 +1,10 @@
 # Iranian Location Data Scraper
 
-This project is a simple and efficient tool for fetching updated states, cities, and districts data from the Iranian post website. The data is saved as a JSON file, which can be easily integrated into your projects.
+This project is a simple and efficient tool for fetching updated states, cities, and districts data from the Iranian Post website. The data is saved as a JSON file, which can be easily integrated into your projects.
 
 ## Features
 
-- Fetches updated location data (states, cities, districts) from the Iranian post website.
+- Fetches updated location data (states, cities, districts) from the Iranian Post website.
 - Saves the data in a JSON format for easy use in other projects.
 - Uses Axios for making HTTP requests.
 
@@ -30,7 +30,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check [issues page](../../issues) if you want to contribute.
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/masterking32/iran-states-cities-districts/issues) if you want to contribute.
 
 ## Show your support
 
