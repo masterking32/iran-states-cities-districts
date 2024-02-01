@@ -16,7 +16,7 @@ This project is a simple and efficient tool for fetching updated states, cities,
 ## Usage
 
 1. Go to [https://gnaf2.post.ir/proposal](https://gnaf2.post.ir/proposal).
-2. Use the inspect element tool in your browser to get the `x-api-key`.
+2. Use the inspect element tool in your browser to get the [`x-api-key`](https://github.com/masterking32/iranian-states-cities-districts/blob/a01dd31d4c114813d9ec373ef72e94c58ee8de84/get_states.js#L13).
 3. Insert the `x-api-key` into the `get_states.js` file.
 4. Run `node get_states.js` in your terminal to start the data fetching process.
 
