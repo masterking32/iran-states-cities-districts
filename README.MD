@@ -1,11 +1,11 @@
 # Iran Location Data Scraper
 
-This project is a simple and efficient tool for fetching updated states, cities, and districts data from the Iranian Post website. The data is saved as a JSON file, which can be easily integrated into your projects.
+This project is a simple and efficient tool for fetching updated states, cities, and districts data from the [Iranian Post official website](https://post.ir). The data is saved as JSON and CSV file, which can be easily integrated into your projects.
 
 ## Features
 
-- Fetches updated location data (states, cities, districts) from the Iranian Post website.
-- Saves the data in a JSON format for easy use in other projects.
+- Fetches updated location data (states, cities, districts) from the [Iranian Post official website](https://post.ir).
+- Saves the data in JSON and CSV format for easy use in other projects.
 - Uses Axios for making HTTP requests.
 
 ## Installation
@@ -16,9 +16,9 @@ This project is a simple and efficient tool for fetching updated states, cities,
 ## Usage
 
 1. Go to [https://gnaf2.post.ir/proposal](https://gnaf2.post.ir/proposal).
-2. Use the inspect element tool in your browser to get the [`x-api-key`](https://github.com/masterking32/iranian-states-cities-districts/blob/a01dd31d4c114813d9ec373ef72e94c58ee8de84/get_states.js#L13).
-3. Insert the `x-api-key` into the `get_states.js` file.
-4. Run `node get_states.js` in your terminal to start the data fetching process.
+2. Use the inspect element tool in your browser to get the [`x-api-key`](https://github.com/masterking32/iran-states-cities-districts/blob/b0c2c8558b2d437ee3a2ca00085fa842f869d412/get_states.js#L13).
+3. Insert the `x-api-key` into the `get_states.js` and `get_states_all_in_ine.js` file.
+4. Run `node get_states.js` or `node get_states_all_in_ine.js` in your terminal to start the data fetching process.
 
 ## Author
 
