@@ -1,0 +1,33 @@
+{
+  "name": "iran-states-cities-districts",
+  "version": "1.0.0",
+  "description": "Iran, Province, Counties, Cities, Districts, Rural Districts, Villages.",
+  "main": "get_states_full_with_villages.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masterking32/iran-states-cities-districts.git"
+  },
+  "keywords": [
+    "Iran",
+    "Province",
+    "Counties",
+    "Cities",
+    "Districts",
+    "Rural",
+    "Districts",
+    "Villages"
+  ],
+  "author": "masterking32",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masterking32/iran-states-cities-districts/issues"
+  },
+  "homepage": "https://github.com/masterking32/iran-states-cities-districts#readme",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "csv-writer": "^1.6.0"
+  }
+}
