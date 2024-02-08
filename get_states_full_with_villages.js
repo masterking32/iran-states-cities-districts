@@ -273,6 +273,23 @@ async function fetchData() {
     csvWriter.writeRecords(final_data).then(() => {
       console.log("CSV file created successfully");
     });
+
+    csvWriter
+      .writeRecords(
+        final_data.map((item) => ({
+          id: item.id,
+          name: item.name,
+          coordinates: item.coordinates,
+          type: item.type,
+          province: item.province,
+          county: item.county,
+          district: item.district,
+          rural_district: item.rural_district,
+        }))
+      )
+      .then(() => {
+        console.log("CSV file created successfully");
+      });
   } catch (error) {
     console.log(error);
   }
