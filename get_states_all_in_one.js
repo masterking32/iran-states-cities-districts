@@ -1,6 +1,7 @@
 const axios = require("axios");
 const fs = require("fs");
 const csv = require("csv-writer").createObjectCsvWriter;
+const { X_API_TOKEN, persianToFinglish } = require("./global.js");
 
 let url =
   "https://gnaf2.post.ir/sina/editor/tables/province/rows?%24top=100&%24orderby=name";
@@ -11,7 +12,7 @@ const headers = {
   "Accept-Language": "en-US,en;q=0.5",
   "Accept-Encoding": "gzip, deflate, br",
   Referer: "https://gnaf2.post.ir/proposal",
-  "x-api-key": "Your X-API-KEY here",
+  "x-api-key": X_API_TOKEN,
   "Content-Type": "application/json",
   Connection: "keep-alive",
   Cookie: "",
@@ -26,6 +27,9 @@ async function fetchData() {
     const states = response.data.value.map((item) => ({
       id: item.id,
       name: item.name,
+      slug: persianToFinglish(
+        item.name.trim().trimEnd().replace(".", "").replace(" ", "-")
+      ),
       coordinates: item.geocoded_point.coordinates,
       type: "province",
       province: 0,
@@ -42,12 +46,17 @@ async function fetchData() {
 
         response.data.value.forEach((item) => {
           const coordinates = item.geocoded_point
-            ? item.geocoded_point.coordinates
+            ? Array.isArray(item.geocoded_point.coordinates[0])
+              ? item.geocoded_point.coordinates[0]
+              : item.geocoded_point.coordinates
             : [56.47, 32.01];
 
           all_counties.push({
             id: item.id,
             name: item.name.trim().trimEnd().replace(".", ""),
+            slug: persianToFinglish(
+              item.name.trim().trimEnd().replace(".", "").replace(" ", "-")
+            ),
             coordinates: coordinates,
             type: "county",
             province: element.id,
@@ -68,12 +77,17 @@ async function fetchData() {
 
           response.data.value.forEach((item) => {
             const coordinates = item.geocoded_point
-              ? item.geocoded_point.coordinates
+              ? Array.isArray(item.geocoded_point.coordinates[0])
+                ? item.geocoded_point.coordinates[0]
+                : item.geocoded_point.coordinates
               : [56.47, 32.01];
 
             all_cities.push({
               id: item.id,
               name: item.name.trim().trimEnd().replace(".", ""),
+              slug: persianToFinglish(
+                item.name.trim().trimEnd().replace(".", "").replace(" ", "-")
+              ),
               coordinates: coordinates,
               type: "city",
               province: element.province,
@@ -85,6 +99,7 @@ async function fetchData() {
             all_cities.push({
               id: 18800,
               name: "فرخ شهر",
+              slug: persianToFinglish("فرخ شهر"),
               coordinates: [50.9825, 32.2706],
               type: "city",
               province: element.province,
@@ -93,6 +108,7 @@ async function fetchData() {
             all_cities.push({
               id: 18801,
               name: "میرآباد",
+              slug: persianToFinglish("میرآباد"),
               coordinates: [45.3762, 36.405],
               type: "city",
               province: element.province,
@@ -101,6 +117,7 @@ async function fetchData() {
             all_cities.push({
               id: 18802,
               name: "چهاربرج",
+              slug: persianToFinglish("چهاربرج"),
               coordinates: [45.9777, 37.1232],
               type: "city",
               province: element.province,
@@ -157,6 +174,7 @@ async function fetchData() {
       header: [
         { id: "id", title: "ID" },
         { id: "name", title: "Name" },
+        { id: "slug", title: "Slug" },
         { id: "coordinates", title: "Coordinates" },
       ],
     });
@@ -166,6 +184,7 @@ async function fetchData() {
         states.map((item) => ({
           id: item.id,
           name: item.name,
+          slug: item.slug,
           coordinates: item.coordinates,
         }))
       )
@@ -178,6 +197,7 @@ async function fetchData() {
       header: [
         { id: "id", title: "ID" },
         { id: "name", title: "Name" },
+        { id: "slug", title: "Slug" },
         { id: "coordinates", title: "Coordinates" },
         { id: "province", title: "Province" },
       ],
@@ -188,6 +208,7 @@ async function fetchData() {
         new_cities.map((item) => ({
           id: item.id,
           name: item.name,
+          slug: item.slug,
           coordinates: item.coordinates,
           province: item.province,
         }))
@@ -201,6 +222,7 @@ async function fetchData() {
       header: [
         { id: "id", title: "ID" },
         { id: "name", title: "Name" },
+        { id: "slug", title: "Slug" },
         { id: "coordinates", title: "Coordinates" },
         { id: "type", title: "Type" },
         { id: "province", title: "Province" },
@@ -212,6 +234,7 @@ async function fetchData() {
         final_data.map((item) => ({
           id: item.id,
           name: item.name,
+          slug: item.slug,
           coordinates: item.coordinates,
           type: item.type,
           province: item.province,
@@ -225,14 +248,15 @@ async function fetchData() {
       id INT PRIMARY KEY,
       type VARCHAR(255) PRIMARY KEY,
       name VARCHAR(255),
+      slug VARCHAR(255),
       coordinates VARCHAR(255),
       province INT
     );\n\n`;
 
     sql += final_data
       .map((item) => {
-        const { id, type, name, coordinates, province } = item;
-        return `\nINSERT INTO table_name (id, type, name, coordinates, province) VALUES (${id}, '${type}', '${name}', '${coordinates}', ${province});`;
+        const { id, type, name, slug, coordinates, province } = item;
+        return `\nINSERT INTO table_name (id, type, name, slug, coordinates, province) VALUES (${id}, '${type}', '${name}', '${slug}', '${coordinates}', ${province});`;
       })
       .join("\n");
 

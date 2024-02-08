@@ -1,6 +1,7 @@
 const axios = require("axios");
 const fs = require("fs");
 const csv = require("csv-writer").createObjectCsvWriter;
+const { X_API_TOKEN, persianToFinglish } = require("./global.js");
 
 let url =
   "https://gnaf2.post.ir/sina/editor/tables/province/rows?%24top=100&%24orderby=name";
@@ -11,7 +12,7 @@ const headers = {
   "Accept-Language": "en-US,en;q=0.5",
   "Accept-Encoding": "gzip, deflate, br",
   Referer: "https://gnaf2.post.ir/proposal",
-  "x-api-key": "Your X-API-KEY here",
+  "x-api-key": X_API_TOKEN,
   "Content-Type": "application/json",
   Connection: "keep-alive",
   Cookie: "",
@@ -46,12 +47,17 @@ async function fetchData() {
 
         response.data.value.forEach((item) => {
           const coordinates = item.geocoded_point
-            ? item.geocoded_point.coordinates
+            ? Array.isArray(item.geocoded_point.coordinates[0])
+              ? item.geocoded_point.coordinates[0]
+              : item.geocoded_point.coordinates
             : [56.47, 32.01];
 
           all_counties.push({
             id: item.id,
             name: item.name.trim().trimEnd().replace(".", ""),
+            slug: persianToFinglish(
+              item.name.trim().trimEnd().replace(".", "").replace(" ", "-")
+            ),
             coordinates: coordinates,
             type: "county",
             province: element.id,
@@ -76,12 +82,17 @@ async function fetchData() {
 
           response.data.value.forEach((item) => {
             const coordinates = item.geocoded_point
-              ? item.geocoded_point.coordinates
+              ? Array.isArray(item.geocoded_point.coordinates[0])
+                ? item.geocoded_point.coordinates[0]
+                : item.geocoded_point.coordinates
               : [56.47, 32.01];
 
             all_cities.push({
               id: item.id,
               name: item.name.trim().trimEnd().replace(".", ""),
+              slug: persianToFinglish(
+                item.name.trim().trimEnd().replace(".", "").replace(" ", "-")
+              ),
               coordinates: coordinates,
               type: "city",
               province: element.province,
@@ -96,6 +107,7 @@ async function fetchData() {
             all_cities.push({
               id: 18800,
               name: "فرخ شهر",
+              slug: "farokh-shahr",
               coordinates: [50.9825, 32.2706],
               type: "city",
               province: element.province,
@@ -107,6 +119,7 @@ async function fetchData() {
             all_cities.push({
               id: 18801,
               name: "میرآباد",
+              slug: "mirabad",
               coordinates: [45.3762, 36.405],
               type: "city",
               province: element.province,
@@ -118,6 +131,7 @@ async function fetchData() {
             all_cities.push({
               id: 18802,
               name: "چهاربرج",
+              slug: "char-barg",
               coordinates: [45.9777, 37.1232],
               type: "city",
               province: element.province,
@@ -137,12 +151,17 @@ async function fetchData() {
 
           response.data.value.forEach((item) => {
             const coordinates = item.geocoded_point
-              ? item.geocoded_point.coordinates
+              ? Array.isArray(item.geocoded_point.coordinates[0])
+                ? item.geocoded_point.coordinates[0]
+                : item.geocoded_point.coordinates
               : [56.47, 32.01];
 
             all_district.push({
               id: item.id,
               name: item.name.trim().trimEnd().replace(".", ""),
+              slug: persianToFinglish(
+                item.name.trim().trimEnd().replace(".", "").replace(" ", "-")
+              ),
               coordinates: coordinates,
               type: "district",
               province: element.province,
@@ -171,12 +190,17 @@ async function fetchData() {
 
           response.data.value.forEach((item) => {
             const coordinates = item.geocoded_point
-              ? item.geocoded_point.coordinates
+              ? Array.isArray(item.geocoded_point.coordinates[0])
+                ? item.geocoded_point.coordinates[0]
+                : item.geocoded_point.coordinates
               : [56.47, 32.01];
 
             all_rural_district.push({
               id: item.id,
               name: item.name.trim().trimEnd().replace(".", ""),
+              slug: persianToFinglish(
+                item.name.trim().trimEnd().replace(".", "").replace(" ", "-")
+              ),
               coordinates: coordinates,
               type: "rural_district",
               province: element.province,
@@ -215,12 +239,17 @@ async function fetchData() {
 
           response.data.value.forEach((item) => {
             const coordinates = item.geocoded_point
-              ? item.geocoded_point.coordinates
+              ? Array.isArray(item.geocoded_point.coordinates[0])
+                ? item.geocoded_point.coordinates[0]
+                : item.geocoded_point.coordinates
               : [56.47, 32.01];
 
             villages.push({
               id: item.id,
               name: item.name.trim().trimEnd().replace(".", ""),
+              slug: persianToFinglish(
+                item.name.trim().trimEnd().replace(".", "").replace(" ", "-")
+              ),
               coordinates: coordinates,
               type: "village",
               province: element.province,
@@ -261,6 +290,7 @@ async function fetchData() {
       header: [
         { id: "id", title: "ID" },
         { id: "name", title: "Name" },
+        { id: "slug", title: "Slug" },
         { id: "coordinates", title: "Coordinates" },
         { id: "type", title: "Type" },
         { id: "province", title: "Province" },
@@ -279,6 +309,7 @@ async function fetchData() {
         final_data.map((item) => ({
           id: item.id,
           name: item.name,
+          slug: item.slug,
           coordinates: item.coordinates,
           type: item.type,
           province: item.province,

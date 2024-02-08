@@ -1,5 +1,6 @@
 const axios = require("axios");
 const fs = require("fs");
+const { X_API_TOKEN, persianToFinglish } = require("./global.js");
 
 let url =
   "https://gnaf2.post.ir/sina/editor/tables/province/rows?%24top=100&%24orderby=name";
@@ -10,7 +11,7 @@ const headers = {
   "Accept-Language": "en-US,en;q=0.5",
   "Accept-Encoding": "gzip, deflate, br",
   Referer: "https://gnaf2.post.ir/proposal",
-  "x-api-key": "Your X-API-KEY here",
+  "x-api-key": X_API_TOKEN,
   "Content-Type": "application/json",
   Connection: "keep-alive",
   Cookie: "",
