@@ -1,0 +1,250 @@
+{
+  "1": {
+    "id": 1,
+    "name": "آذربایجان شرقی",
+    "en_name": "East Azerbaijan",
+    "phone_code": 41,
+    "lat": "37.9160365",
+    "lon": "46.6781589"
+  },
+  "2": {
+    "id": 2,
+    "name": "آذربایجان غربی",
+    "en_name": "West Azerbaijan",
+    "phone_code": 44,
+    "lat": "37.7416484",
+    "lon": "45.0207638"
+  },
+  "3": {
+    "id": 3,
+    "name": "اردبیل",
+    "en_name": "Ardabil",
+    "phone_code": 45,
+    "lat": "38.4583983",
+    "lon": "47.9313001"
+  },
+  "4": {
+    "id": 4,
+    "name": "اصفهان",
+    "en_name": "Isfahan",
+    "phone_code": 31,
+    "lat": "33.1881386",
+    "lon": "52.4981635"
+  },
+  "5": {
+    "id": 5,
+    "name": "البرز",
+    "en_name": "Alborz",
+    "phone_code": 26,
+    "lat": "35.9413239",
+    "lon": "50.7884216"
+  },
+  "6": {
+    "id": 6,
+    "name": "ایلام",
+    "en_name": "Ilam",
+    "phone_code": 84,
+    "lat": "33.1545696",
+    "lon": "46.7576343"
+  },
+  "7": {
+    "id": 7,
+    "name": "بوشهر",
+    "en_name": "Bushehr",
+    "phone_code": 77,
+    "lat": "28.8936645",
+    "lon": "51.3204877"
+  },
+  "8": {
+    "id": 8,
+    "name": "تهران",
+    "en_name": "Tehran",
+    "phone_code": 21,
+    "lat": 35.561769196,
+    "lon": 51.734780835
+  },
+  "16": {
+    "id": 16,
+    "name": "چهارمحال وبختیاری",
+    "en_name": "Chaharmahal and Bakhtiyari",
+    "phone_code": 38,
+    "lat": "32.0163307",
+    "lon": "50.685709"
+  },
+  "17": {
+    "id": 17,
+    "name": "خراسان جنوبی",
+    "en_name": "South Khorasan",
+    "phone_code": 56,
+    "lat": "33.129577",
+    "lon": "58.1065069"
+  },
+  "18": {
+    "id": 18,
+    "name": "خراسان رضوی",
+    "en_name": "Razavi Khorasan",
+    "phone_code": 51,
+    "lat": "35.4795009",
+    "lon": "59.0237291"
+  },
+  "19": {
+    "id": 19,
+    "name": "خراسان شمالی",
+    "en_name": "North Khorasan",
+    "phone_code": 58,
+    "lat": "37.5378855",
+    "lon": "56.9526137"
+  },
+  "20": {
+    "id": 20,
+    "name": "خوزستان",
+    "en_name": "Khuzestan",
+    "phone_code": 61,
+    "lat": "31.5563051",
+    "lon": "49.0058885"
+  },
+  "21": {
+    "id": 21,
+    "name": "زنجان",
+    "en_name": "Zanjan",
+    "phone_code": 24,
+    "lat": "36.515854",
+    "lon": "48.4777616"
+  },
+  "22": {
+    "id": 22,
+    "name": "سمنان",
+    "en_name": "Semnan",
+    "phone_code": 23,
+    "lat": "35.3843145",
+    "lon": "54.6209302"
+  },
+  "23": {
+    "id": 23,
+    "name": "سیستان وبلوچستان",
+    "en_name": "Sistan and Baluchestan",
+    "phone_code": 54,
+    "lat": "28.1292481",
+    "lon": "60.8236848"
+  },
+  "24": {
+    "id": 24,
+    "name": "فارس",
+    "en_name": "Fars",
+    "phone_code": 71,
+    "lat": "29.299051",
+    "lon": "53.218456"
+  },
+  "25": {
+    "id": 25,
+    "name": "قزوین",
+    "en_name": "Qazvin",
+    "phone_code": 28,
+    "lat": "36.0156291",
+    "lon": "49.8398161"
+  },
+  "26": {
+    "id": 26,
+    "name": "قم",
+    "en_name": "Qom",
+    "phone_code": 25,
+    "lat": "34.7191915",
+    "lon": "51.0122844"
+  },
+  "27": {
+    "id": 27,
+    "name": "کردستان",
+    "en_name": "Kurdistan",
+    "phone_code": 87,
+    "lat": "35.672803",
+    "lon": "47.0124376"
+  },
+  "28": {
+    "id": 28,
+    "name": "کرمان",
+    "en_name": "Kerman",
+    "phone_code": 34,
+    "lat": "29.571858",
+    "lon": "57.301047"
+  },
+  "29": {
+    "id": 29,
+    "name": "کرمانشاه",
+    "en_name": "Kermanshah",
+    "phone_code": 83,
+    "lat": "34.486732",
+    "lon": "46.80872698861859"
+  },
+  "30": {
+    "id": 30,
+    "name": "کهگیلویه وبویراحمد",
+    "en_name": "Kohgiluye and Buyer Ahmad",
+    "phone_code": 74,
+    "lat": "30.8143476",
+    "lon": "50.8661454"
+  },
+  "31": {
+    "id": 31,
+    "name": "گلستان",
+    "en_name": "Golestan",
+    "phone_code": 17,
+    "lat": "37.1984436",
+    "lon": "55.070672"
+  },
+  "32": {
+    "id": 32,
+    "name": "گیلان",
+    "en_name": "Gilan",
+    "phone_code": 13,
+    "lat": "37.1515627",
+    "lon": "49.6389743"
+  },
+  "33": {
+    "id": 33,
+    "name": "لرستان",
+    "en_name": "Lorestan",
+    "phone_code": 66,
+    "lat": "33.5368206",
+    "lon": "48.2443945"
+  },
+  "34": {
+    "id": 34,
+    "name": "مازندران",
+    "en_name": "Mazandaran",
+    "phone_code": 11,
+    "lat": "36.3159159",
+    "lon": "51.8968597"
+  },
+  "35": {
+    "id": 35,
+    "name": "مرکزی",
+    "en_name": "Markazi",
+    "phone_code": 86,
+    "lat": "34.5302705",
+    "lon": "49.7864561"
+  },
+  "36": {
+    "id": 36,
+    "name": "هرمزگان",
+    "en_name": "Hormozgan",
+    "phone_code": 76,
+    "lat": "27.7198095",
+    "lon": "56.335807"
+  },
+  "37": {
+    "id": 37,
+    "name": "همدان",
+    "en_name": "Hamadan",
+    "phone_code": 81,
+    "lat": "34.9726302",
+    "lon": "48.6563818"
+  },
+  "38": {
+    "id": 38,
+    "name": "یزد",
+    "en_name": "Yazd",
+    "phone_code": 35,
+    "lat": "32.0406164",
+    "lon": "54.6657189"
+  }
+}
